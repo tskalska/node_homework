@@ -25,6 +25,9 @@ const invokeAction = async({ action, id, name, email, phone }) => {
   
       case 'remove':
         removedContact = await Todo.removeContact(id);
+        if(!contact){
+          throw new Error(`Contact with id ${id} not found`);
+        }
         console.log(removedContact);
         break;
   
